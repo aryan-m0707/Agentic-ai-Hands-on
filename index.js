@@ -9,9 +9,12 @@ const model = new ChatGroq({
 });
 
 try {
-  const response = await model.invoke(
-    "What is Agentic AI? Explain in simple words."
-  );
+  const stream = await model.stream("What is Agentic AI?");
+
+for await (const chunk of stream) {
+  process.stdout.write(chunk.content);
+}
+  ;
 
   console.log(response.content);
 } catch (error) {
