@@ -1,6 +1,8 @@
 
 import "dotenv/config";
 import { ChatGroq } from "@langchain/groq";
+import readline from "node:readline/promises";
+import { stdin as input, stdout as output } from "node:process";
 
 const model = new ChatGroq({
   apiKey: process.env.GROQ_API_KEY,
@@ -8,15 +10,28 @@ const model = new ChatGroq({
   temperature: 0.7,
 });
 
+const rl = readline.createInterface({ input, output });
+
 try {
-  const stream = await model.stream("What is Agentic AI?");
+  while (true) {
+    const question = await rl.question("\nYou: ");
 
-for await (const chunk of stream) {
-  process.stdout.write(chunk.content);
-}
-  ;
+    if (question.toLowerCase() === "exit") break;
 
-  console.log(response.content);
+    const stream = await model.stream(question);
+
+    process.stdout.write("AI: ");
+
+    for await (const chunk of stream) {
+      process.stdout.write(chunk.content);
+    }
+
+    console.log();
+  }
 } catch (error) {
   console.error("Error:", error.message);
+
+  
+} finally {
+  rl.close();
 }
