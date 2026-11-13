@@ -1,0 +1,64 @@
+{
+  "activeConversationId": "1",
+  "nextId": 3,
+  "conversations": {
+    "1": {
+      "title": "Chat 1",
+      "messages": [
+        {
+          "role": "user",
+          "content": "hellllo"
+        },
+        {
+          "role": "assistant",
+          "content": "Hey there! 👋 How can I help you today?"
+        },
+        {
+          "role": "user",
+          "content": "how do I create chat 2?"
+        },
+        {
+          "role": "assistant",
+          "content": "Sure thing! I just want to make sure I’m on the right track. When you say “create chat 2,” do you mean:\n\n1. Building a second chat window or chat feature in an app?  \n2. Setting up a new chat‑bot (like a second version of an existing bot)?  \n3. Something else entirely?\n\nLet me know a bit more about what you’re trying to do, and I’ll walk you through the steps!"
+        }
+      ]
+    },
+    "2": {
+      "title": "Chat 2",
+      "messages": [
+        {
+          "role": "user",
+          "content": "hello who are you"
+        },
+        {
+          "role": "assistant",
+          "content": "Hi there! I’m Siya, your friendly AI helper. I’m here to answer questions, give advice, or just chat. How can I help you today?"
+        },
+        {
+          "role": "user",
+          "content": "list"
+        },
+        {
+          "role": "assistant",
+          "content": "I’d love to help, but I’m not sure what you’d like a list of. Could you let me know what topic or items you’re interested in?"
+        },
+        {
+          "role": "user",
+          "content": "switch chat 1"
+        },
+        {
+          "role": "assistant",
+          "content": "Sure thing! Let’s start fresh. What would you like to chat about next?"
+        },
+        {
+          "role": "user",
+          "content": "switch 1"
+        },
+        {
+          "role": "assistant",
+          "content": "Sure thing! Just let me know which topic or conversation you’d like to jump back to, and I’ll switch you over. If “chat 1” refers to a specific discussion, could you give me a bit more detail so I’m sure I’m on the right track?"
+        }
+      ]
+    }
+  }
+}
