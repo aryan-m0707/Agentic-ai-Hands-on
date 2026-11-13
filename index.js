@@ -176,6 +176,18 @@ async function handleCommand(input) {
       return true;
     }
 
+    case "/clear": {
+  const conversation = getActiveConversation();
+
+  conversation.messages = [];
+
+  await saveData();
+
+  console.log("Current conversation history cleared!");
+
+  return true;
+}
+
     case "/help": {
       console.log(`
 Available commands:
