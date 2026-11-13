@@ -2,8 +2,7 @@
 import "dotenv/config";
 import { ChatGroq } from "@langchain/groq";
 import readline from "node:readline/promises";
-import { HumanMessage, AIMessage } from "@langchain/core/messages";
-
+import { HumanMessage, AIMessage, SystemMessage } from "@langchain/core/messages";
 // 1. Initialize the AI model
 const model = new ChatGroq({
   apiKey: process.env.GROQ_API_KEY,
@@ -12,8 +11,18 @@ const model = new ChatGroq({
 });
 
 // 2. Create conversation memory
-const history = [];
+const history = [
+  new SystemMessage(`
+    You are Siya, a friendly and helpful AI assistant.
 
+    Rules:
+    - Explain things in simple language.
+    - Be friendly and conversational.
+    - Give practical examples when useful.
+    - If you don't know something, admit it.
+    - Keep answers concise unless more detail is needed.
+  `)
+];
 // 3. Create terminal input
 const rl = readline.createInterface({
   input: process.stdin,
