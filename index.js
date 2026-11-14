@@ -108,6 +108,33 @@ async function handleCommand(input) {
       console.log(`Created new conversation: Chat ${id}`);
       return true;
     }
+    
+case "/export": {
+  const conversation = getActiveConversation();
+
+  if (conversation.messages.length === 0) {
+    console.log("Nothing to export!");
+    return true;
+  }
+
+  const content = [
+    `# ${conversation.title}`,
+    "",
+    ...conversation.messages.map(message =>
+      `**${message.role === "user" ? "You" : "Siya"}:**\n\n${message.content}\n`
+    )
+  ].join("\n");
+
+  await fs.mkdir("exports", { recursive: true });
+
+  const filename = `exports/chat-${data.activeConversationId}.md`;
+
+  await fs.writeFile(filename, content, "utf8");
+
+  console.log(`Conversation exported to ${filename}`);
+
+  return true;
+}
 
     case "/list": {
       console.log("\nYour conversations:");

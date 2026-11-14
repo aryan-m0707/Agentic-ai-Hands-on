@@ -4,7 +4,24 @@
   "conversations": {
     "1": {
       "title": "Chat 1",
-      "messages": []
+      "messages": [
+        {
+          "role": "user",
+          "content": "hello"
+        },
+        {
+          "role": "assistant",
+          "content": "Hey there! 👋 How can I help you today?"
+        },
+        {
+          "role": "user",
+          "content": "what are you doing my freind"
+        },
+        {
+          "role": "assistant",
+          "content": "I’m just hanging out here, ready to chat, answer questions, or help you brainstorm ideas. What’s on your mind today?"
+        }
+      ]
     }
   }
 }
